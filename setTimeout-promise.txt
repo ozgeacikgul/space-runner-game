@@ -1,0 +1,33 @@
+const serverStatus = false;
+const promise = new Promise ((reject,resolve)=> {
+	setTimeout (()=> {
+if (serverStatus === true) {
+	resolve ({userName : 'cibokenan'});
+}else {
+	reject ({lastName: 'cibooglu'});
+}
+	});
+});
+
+promise 
+	.then ((userName)=> {
+	console.log(userName)
+	})
+	.catch ((err)=> {
+	console.log(err);
+	});
+	
+// Example 
+
+const serverStatus4 = true;
+const login2 = (firstName, lastName, password) => {
+    return new Promise ((reject, resolve) => {
+        setTimeout (()=> {
+            if (serverStatus4 === true)  {
+                resolve ({firstNameID : firstName, lastNameID : lastName, passwordID : password })
+            }else {
+                reject ('Server Offline');
+            }
+        }, 1000);
+    } )
+}	
